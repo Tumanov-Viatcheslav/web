@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import rectangles.GeometryException;
 import rectangles.Rectangle;
+import rectangles.RectangleExelFileWriter;
 import rectangles.RectangleTextFileWriter;
 
 @Controller
@@ -29,6 +30,7 @@ public class RectangleController {
         try {
             rectangle = new Rectangle(Double.parseDouble(width), Double.parseDouble(height));
             new RectangleTextFileWriter().writeRectangleToFile(rectangle, "src/main/resources/recs.txt");
+            new RectangleExelFileWriter().writeRectangleToFile(rectangle, "src/main/resources/recs.xlsx");
             model.addAttribute("perimeter", rectangle.perimeter());
             model.addAttribute("area", rectangle.area());
         } catch (Exception e) {

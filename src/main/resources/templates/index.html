@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+<button type="button" onclick="location.href='second';">
+    Hello from Slava
+</button>
+<a href="second">second page</a>
+<form action="/second" method="get">
+    <label for="name">Введите имя:</label>
+    <input type="text" name="name" id="name" required>
+    <button type="submit">Отправить</button>
+</form>
+<a href="sum">sum page</a>
+<button type="button" onclick="location.href='rectangle';">
+    Rectangle
+</button>
+</body>
+</html>

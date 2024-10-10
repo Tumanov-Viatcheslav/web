@@ -15,8 +15,8 @@ import java.util.Map;
 
 @Controller
 public class RectangleController {
-    List<RectangleWriter> writerList = new ArrayList<>();
-    Map<RectangleWriter, String> writersDestinationsMap = new HashMap<>();
+    private final List<RectangleWriter> writerList = new ArrayList<>();
+    private final Map<RectangleWriter, String> writersDestinationsMap = new HashMap<>();
 
     @GetMapping("/rectangle")
     public String rectangle(

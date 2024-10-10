@@ -1,4 +1,4 @@
-package rectangles;
+package rectangles.exceptions;
 
 public class GeometryException extends Exception{
 

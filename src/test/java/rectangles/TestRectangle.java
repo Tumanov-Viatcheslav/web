@@ -2,6 +2,9 @@ package rectangles;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import rectangles.exceptions.GeometryException;
+import rectangles.exceptions.NegativeLengthException;
+import rectangles.exceptions.ZeroLengthException;
 
 public class TestRectangle {
     @Test

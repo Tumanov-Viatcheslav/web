@@ -1,5 +1,9 @@
 package rectangles;
 
+import rectangles.exceptions.GeometryException;
+import rectangles.exceptions.NegativeLengthException;
+import rectangles.exceptions.ZeroLengthException;
+
 import java.util.Objects;
 
 public class Rectangle extends Figure{

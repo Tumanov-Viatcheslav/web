@@ -1,4 +1,4 @@
-package rectangles;
+package rectangles.exceptions;
 
 public class NegativeLengthException extends GeometryException{
     double wrongValue;

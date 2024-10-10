@@ -1,4 +1,6 @@
-package rectangles;
+package rectangles.writers;
+
+import rectangles.Rectangle;
 
 import java.sql.*;
 
@@ -45,8 +47,8 @@ public class RectangleDBWriter implements RectangleWriter {
         String sql = "insert into rectangle (width, length) values (?, ?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDouble(1, rectangle.width);
-            preparedStatement.setDouble(2, rectangle.length);
+            preparedStatement.setDouble(1, rectangle.getWidth());
+            preparedStatement.setDouble(2, rectangle.getLength());
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getClass().getName() + ": " + e.getMessage());

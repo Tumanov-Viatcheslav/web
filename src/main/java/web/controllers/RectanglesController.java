@@ -5,7 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import rectangles.Rectangle;
-import rectangles.RectangleExelReader;
+import rectangles.readers.RectangleExelReader;
+import rectangles.readers.RectangleTextFileReader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,26 +18,20 @@ public class RectanglesController {
     public String rectangles(
             Model model,
             @RequestParam(name = "type", defaultValue = "") String type,
-            @RequestParam(name = "destination", defaultValue = "") String destination
+            @RequestParam(name = "source", defaultValue = "") String source
     ) {
         List<Rectangle> rectangleList;
-        if (type.isEmpty() || destination.isEmpty()) {
+        if (type.isEmpty() || source.isEmpty()) {
             model.addAttribute("rectangleList", new ArrayList<>());
             return "rectangles";
         }
-        switch (type) {
-            case "textFile":
-                rectangleList = new ArrayList<>();
-                break;
-            case "exelFile":
-                rectangleList = RectangleExelReader.readRectanglesFromExelFile(destination);
-                break;
-            case "dbTable":
-                rectangleList = new ArrayList<>();
-                break;
-            default:
-                rectangleList = new ArrayList<>();
-        }
+        //TODO make source map in Service
+        rectangleList = switch (type) {
+            case "textFile" -> new RectangleTextFileReader().getRectangleList(source);
+            case "exelFile" -> new RectangleExelReader().getRectangleList(source);
+            case "dbTable" -> new ArrayList<>();
+            default -> new ArrayList<>();
+        };
         model.addAttribute("rectangleList", rectangleList);
         return "rectangles";
     }

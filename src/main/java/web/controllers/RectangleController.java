@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import rectangles.*;
+import rectangles.writers.RectangleDBWriter;
+import rectangles.writers.RectangleExelFileWriter;
+import rectangles.writers.RectangleTextFileWriter;
+import rectangles.writers.RectangleWriter;
 
 import java.util.ArrayList;
 import java.util.HashMap;

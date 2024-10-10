@@ -1,15 +1,16 @@
-package rectangles;
+package rectangles.readers;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import rectangles.Rectangle;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RectangleExelReader {
+public class RectangleExelReader implements RectangleReader {
     public static void showRectanglesFromExelFile(String fileName) {
         try (Workbook exelFile = new XSSFWorkbook(new FileInputStream(fileName))) {
             Sheet sheet = exelFile.getSheetAt(0);
@@ -28,6 +29,11 @@ public class RectangleExelReader {
         catch (Exception e) {
             System.out.println(e.getClass().getName() + ": " + e.getMessage());
         }
+    }
+
+    @Override
+    public List<Rectangle> getRectangleList(String fileName) {
+        return readRectanglesFromExelFile(fileName);
     }
 
     public static List<Rectangle> readRectanglesFromExelFile(String fileName) {

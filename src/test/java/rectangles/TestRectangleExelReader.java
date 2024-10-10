@@ -4,8 +4,7 @@ import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.spi.LoggingEvent;
 import org.junit.jupiter.api.*;
-import rectangles.Rectangle;
-import rectangles.RectangleExelReader;
+import rectangles.readers.RectangleExelReader;
 
 import java.util.ArrayList;
 import java.util.List;

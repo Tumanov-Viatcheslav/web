@@ -1,9 +1,10 @@
-package rectangles;
+package rectangles.writers;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import rectangles.Rectangle;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,8 +31,8 @@ public class RectangleExelFileWriter implements RectangleWriter {
         Row newRow = sheet.getRow(sheet.getLastRowNum());
         newRow.createCell(0);
         newRow.createCell(1);
-        newRow.getCell(0).setCellValue(rectangle.width);
-        newRow.getCell(1).setCellValue(rectangle.length);
+        newRow.getCell(0).setCellValue(rectangle.getWidth());
+        newRow.getCell(1).setCellValue(rectangle.getLength());
         try (FileOutputStream exelFile = new FileOutputStream(fileName)) {
             workbook.write(exelFile);
         } catch (Exception e) {

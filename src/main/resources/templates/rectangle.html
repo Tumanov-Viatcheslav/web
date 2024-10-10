@@ -6,10 +6,10 @@
 </head>
 <body>
 <form action="rectangle" method="get">
-  <label for="width">Введите первое число:</label>
-  <input type="number" name="width" id="width" required>
-  <label for="height">Введите второе число:</label>
-  <input type="number" name="height" id="height" required>
+  <label for="width">Введите ширину:</label>
+  <input type="text" name="width" id="width" required>
+  <label for="length">Введите длину:</label>
+  <input type="text" name="length" id="length" required>
   <button type="submit">Отправить</button>
 </form>
 perimeter=<span th:text="${perimeter}"/>

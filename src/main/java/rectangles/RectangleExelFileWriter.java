@@ -9,9 +9,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-public class RectangleExelFileWriter implements RectangleFileWriter {
+public class RectangleExelFileWriter implements RectangleWriter {
     @Override
-    public void writeRectangleToFile(Rectangle rectangle, String fileName) {
+    public void writeRectangle(Rectangle rectangle, String fileName) {
         Workbook workbook = null;
         File file = new File(fileName);
         if (file.exists() && file.length() != 0) {

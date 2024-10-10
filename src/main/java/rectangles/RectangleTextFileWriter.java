@@ -4,8 +4,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 
-public class RectangleTextFileWriter implements RectangleFileWriter {
-    public void writeRectangleToFile(Rectangle rectangle, String fileName) {
+public class RectangleTextFileWriter implements RectangleWriter {
+    public void writeRectangle(Rectangle rectangle, String fileName) {
         File file = new File(fileName);
         String regex = "";
         if (file.exists() && file.length() != 0)

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Rectangles</title>
+</head>
+<body>
+<form action="rectangles" method="get">
+  <label for="type">Выберите, как загружать:</label>
+  <select id="type" name="type">
+    <option value="textFile">Из текстового файла</option>
+    <option value="exelFile">Из файла Exel</option>
+    <option value="dbTable">Из базы даных</option>
+  </select>
+  <br>
+  <label for="destination">Введите источник:</label>
+  <input type="text" name="destination" id="destination" required>
+  <br>
+  <button type="submit">Загрузить</button>
+</form>
+<table>
+  <thead>
+  <tr>
+    <th> width </th>
+    <th> length </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:if="${rectangleList.empty}">
+    <td colspan="2"> No Rectangles Available </td>
+  </tr>
+  <tr th:each="rectangle : ${rectangleList}">
+    <td><span th:text="${rectangle.width}"> width </span></td>
+    <td><span th:text="${rectangle.length}"> length </span></td>
+  </tr>
+  </tbody>
+</table>
+<button th:text="HomePage" onclick="location.href='index';"></button>
+</body>
+</html>
